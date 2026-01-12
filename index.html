@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roblox Store | Vendas via PIX</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #00ff88;
+            --bg-color: #0a0a0a;
+            --card-bg: #151515;
+            --accent-red: #ff4d4d;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: linear-gradient(180deg, #1a1a1a 0%, #0a0a0a 100%);
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .live-indicator {
+            background-color: var(--accent-red);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.4; }
+            100% { opacity: 1; }
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            padding: 0 20px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #333;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .price {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        .btn-buy {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: black;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            width: 80%;
+            transition: 0.3s;
+        }
+
+        .btn-buy:hover {
+            filter: brightness(1.2);
+            box-shadow: 0 0 15px var(--primary-color);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <span class="live-indicator">● Mostrando itens ao vivo</span>
+    <h1>LOJA DO ROBLOX</h1>
+    <p>Pagamento via <strong>PIX</strong> | Entrega via <strong>Instagram</strong></p>
+</header>
+
+<div class="container">
+    <div class="card">
+        <img src="https://via.placeholder.com/300x200?text=FRUTA+ROBLOX" alt="Item 1">
+        <h3>Fruta Mítica</h3>
+        <p>Estoque disponível para entrega imediata.</p>
+        <div class="price">R$ 49,90</div>
+        <a href="https://ig.me/m/SEU_USER_INSTAGRAM" target="_blank" class="btn-buy">COMPRAR NO PIX</a>
+    </div>
+
+    <div class="card">
+        <img src="https://via.placeholder.com/300x200?text=ROBUX+PACK" alt="Item 2">
+        <h3>Pacote 1000 Robux</h3>
+        <p>Via Gamepass ou Grupo.</p>
+        <div class="price">R$ 35,00</div>
+        <a href="https://ig.me/m/SEU_USER_INSTAGRAM" target="_blank" class="btn-buy">COMPRAR NO PIX</a>
+    </div>
+
+    <div class="card">
+        <img src="https://via.placeholder.com/300x200?text=SKIN+LIMITED" alt="Item 3">
+        <h3>Acessório Limited</h3>
+        <p>Item raro de catálogo.</p>
+        <div class="price">R$ 20,00</div>
+        <a href="https://ig.me/m/SEU_USER_INSTAGRAM" target="_blank" class="btn-buy">COMPRAR NO PIX</a>
+    </div>
+</div>
+
+<footer>
+    <p>Após o pagamento, envie o comprovante no Direct do Instagram para receber seu item.</p>
+    <p>© 2024 Minha Loja Roblox - Todos os direitos reservados.</p>
+</footer>
+
+</body>
+</html>
