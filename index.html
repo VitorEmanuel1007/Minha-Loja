@@ -3,229 +3,192 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roblox Store | Vendas via PIX</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <title>Nether Store | Artefatos Roblox</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #00ff88;
-            --bg-color: #0a0a0a;
-            --card-bg: #151515;
-            --accent-red: #ff4d4d;
+            --primary-red: #e63946;
+            --dark-red: #800000;
+            --bg-dark: #0d0d0d;
+            --card-bg: #1a1a1a;
+            --border-style: 2px solid #333;
+            --glow-red: 0 0 15px rgba(230, 57, 70, 0.4);
         }
 
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: var(--bg-color);
-            color: white;
+            background-color: var(--bg-dark);
+            /* Adicionando uma textura leve de fundo que lembra pedra/papel antigo */
+            background-image: url('https://www.transparenttextures.com/patterns/dark-matter.png');
+            color: #d1d1d1;
             margin: 0;
             padding: 0;
         }
 
         header {
-            background: linear-gradient(180deg, #1a1a1a 0%, #0a0a0a 100%);
-            padding: 40px 20px;
+            background: linear-gradient(to bottom, #000, #1a1a1a);
+            padding: 50px 20px;
             text-align: center;
-            border-bottom: 2px solid var(--primary-color);
+            border-bottom: 3px solid var(--dark-red);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.8);
+        }
+
+        h1 {
+            font-family: 'Cinzel', serif;
+            color: var(--primary-red);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin: 15px 0;
+            text-shadow: 2px 2px 4px black, 0 0 10px var(--dark-red);
         }
 
         .live-indicator {
-            background-color: var(--accent-red);
-            color: white;
-            padding: 5px 12px;
-            border-radius: 20px;
+            background: #000;
+            color: var(--primary-red);
+            padding: 8px 18px;
+            border-radius: 4px;
             font-size: 0.8rem;
             font-weight: bold;
-            text-transform: uppercase;
-            animation: pulse 1.5s infinite;
+            border: 1px solid var(--dark-red);
+            box-shadow: var(--glow-red);
+            animation: pulse 2s infinite;
         }
 
         @keyframes pulse {
-            0% { opacity: 1; }
-            50% { opacity: 0.4; }
-            100% { opacity: 1; }
+            0% { box-shadow: 0 0 5px var(--dark-red); }
+            50% { box-shadow: 0 0 20px var(--primary-red); }
+            100% { box-shadow: 0 0 5px var(--dark-red); }
         }
 
         .container {
-            max-width: 1000px;
-            margin: 40px auto;
+            max-width: 1100px;
+            margin: 50px auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
+            gap: 35px;
             padding: 0 20px;
         }
 
         .card {
             background: var(--card-bg);
-            border-radius: 15px;
-            padding: 20px;
+            border: 2px solid #2a2a2a;
+            border-radius: 4px; /* Cantos menos arredondados para parecer metal/pedra */
+            padding: 15px;
             text-align: center;
+            position: relative;
+            transition: 0.4s;
+            overflow: hidden;
+        }
+
+        /* Moldura interna simulando a foto */
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 5px; left: 5px; right: 5px; bottom: 5px;
             border: 1px solid #333;
-            transition: 0.3s;
+            pointer-events: none;
         }
 
         .card:hover {
-            border-color: var(--primary-color);
-            transform: translateY(-5px);
+            border-color: var(--primary-red);
+            transform: scale(1.03);
+            box-shadow: var(--glow-red);
         }
 
         .card img {
             width: 100%;
-            height: 200px;
+            height: 220px;
             object-fit: cover;
-            border-radius: 10px;
-            margin-bottom: 15px;
+            filter: grayscale(30%) contrast(120%);
+            border: 1px solid #000;
+        }
+
+        .card h3 {
+            font-family: 'Cinzel', serif;
+            color: #eee;
+            margin: 15px 0 5px;
         }
 
         .price {
-            font-size: 1.8rem;
-            color: var(--primary-color);
+            font-size: 1.6rem;
+            color: var(--primary-red);
             font-weight: bold;
-            margin: 15px 0;
+            font-family: 'Cinzel', serif;
+            margin: 10px 0;
         }
 
         .btn-buy {
             display: inline-block;
-            background-color: var(--primary-color);
-            color: black;
+            background: linear-gradient(to bottom, #800000, #4d0000);
+            color: white;
             text-decoration: none;
-            padding: 12px 25px;
-            border-radius: 8px;
+            padding: 12px 0;
+            width: 100%;
             font-weight: bold;
-            width: 80%;
+            text-transform: uppercase;
+            border: 1px solid var(--primary-red);
             transition: 0.3s;
+            cursor: pointer;
+            font-family: 'Cinzel', serif;
         }
 
         .btn-buy:hover {
-            filter: brightness(1.2);
-            box-shadow: 0 0 15px var(--primary-color);
+            background: var(--primary-red);
+            color: black;
+            box-shadow: 0 0 15px var(--primary-red);
         }
 
         footer {
-            text-align: center;
+            background: #000;
             padding: 40px;
-            font-size: 0.9rem;
+            text-align: center;
+            border-top: 2px solid var(--dark-red);
             color: #666;
+            font-size: 0.85rem;
         }
+
+        strong { color: var(--primary-red); }
+
     </style>
 </head>
 <body>
 
 <header>
-    <span class="live-indicator">● Mostrando itens ao vivo (Estamos em LIVE ON)</span>
-    <h1>⚠️COLOQUE O NOME E O VALOR CERTO DO BRAINROT NA HORA DE PAGAR⚠️</h1>
-    <p>Pagamento via <strong>PIX</strong> | 🟢Entrega via <strong>Instagram ou chat Tik Tok🟢</strong></p>
+    <span class="live-indicator">● LIVE ON - ARTEFATOS DISPONÍVEIS</span>
+    <h1>NETHER STORE</h1>
+    <p>Adquira o poder supremo via <strong>PIX</strong></p>
 </header>
 
 <div class="container">
     <div class="card">
-        <img src="https://i.pinimg.com/736x/f5/1d/d8/f51dd89eb58bb6af8281dd28aa519993.jpg" alt="Item 2">
-        <h3>BRAINROT $1T p/segundo</h3>
-        <p>Chame no insta abaixo para receber</p>
+        <img src="https://i.pinimg.com/736x/f5/1d/d8/f51dd89eb58bb6af8281dd28aa519993.jpg" alt="Item">
+        <h3>BRAINROT $1T</h3>
+        <p>Potência básica do abismo</p>
         <div class="price">R$ 1,49</div>
-        <a href="https://livepix.gg/vitorbrainrot00710" target="_blank" class="btn-buy">PEGAR AGORA</a>
+        <a href="https://livepix.gg/vitorbrainrot00710" target="_blank" class="btn-buy">ADQUIRIR AGORA</a>
     </div>
 
     <div class="card">
-        <img src="https://i.pinimg.com/736x/5a/2b/9b/5a2b9be3e5faf68ae694febca2dba43c.jpg">
-        <h3>BRAINROT $5T p/segundo</h3>
-        <p>Chame no insta abaixo para receber</p>
-        <div class="price">R$ 4,97</div>
-        <a href="https://livepix.gg/vitorbrainrot00710" target="_blank" class="btn-buy">PEGAR AGORA</a>
-    </div>
-
-    <div class="card">
-        <img src="https://i.pinimg.com/736x/82/3f/d1/823fd1017a0df56e7fd27b1dc11df37c.jpg" alt="Item 2">
-        <h3>BRAINROT $10T p/segundo</h3>
-        <p>Chame no insta abaixo para receber</p>
-        <div class="price">R$ 8,00</div>
-        <a href="https://livepix.gg/vitorbrainrot00710" target="_blank" class="btn-buy">PEGAR AGORA</a>
-    </div>
-    
-   <div class="card">
-        <img src="https://i.pinimg.com/736x/55/18/49/5518499efd56fa72d961aafa47427baf.jpg" alt="Item 2">
-        <h3>BRAINROT $15T p/segundo</h3>
-        <p>Chame no insta abaixo para receber</p>
-        <div class="price">R$ 12,00</div>
-        <a href="https://livepix.gg/vitorbrainrot00710" target="_blank" class="btn-buy">PEGAR AGORA</a>
-    </div>
-
-    <div class="card">
-        <img src="https://i.pinimg.com/1200x/38/f1/de/38f1debef2687f502270750acf46ad52.jpg" alt="Item 2">
-        <h3>BRAINROT $20T p/segundo</h3>
-        <p>Chame no insta abaixo para receber</p>
-        <div class="price">R$ 13,80</div>
-        <a href="https://livepix.gg/vitorbrainrot00710" target="_blank" class="btn-buy">PEGAR AGORA</a>
-    </div>
-
-    <div class="card">
-        <img src="https://i.pinimg.com/736x/fa/16/c1/fa16c1a347bd34e62ed60843e170f1ed.jpg" alt="Item 2">
-        <h3>BRAINROT $30T p/segundo</h3>
-        <p>Chame no insta abaixo para receber</p>
+        <img src="https://i.pinimg.com/736x/fa/16/c1/fa16c1a347bd34e62ed60843e170f1ed.jpg" alt="Item">
+        <h3>BRAINROT $30T</h3>
+        <p>Fragmento de alma sombria</p>
         <div class="price">R$ 16,00</div>
-        <a href="https://livepix.gg/vitorbrainrot00710" target="_blank" class="btn-buy">PEGAR AGORA</a>
+        <a href="https://livepix.gg/vitorbrainrot00710" target="_blank" class="btn-buy">ADQUIRIR AGORA</a>
     </div>
 
     <div class="card">
-        <img src="https://i.pinimg.com/736x/89/61/d3/8961d3ff5797bd391138c49d456cf0ee.jpg" alt="Item 2">
-        <h3>BRAINROT $50T p/segundo</h3>
-        <p>Chame no insta abaixo para receber</p>
-        <div class="price">R$ 20,00</div>
-        <a href="https://livepix.gg/vitorbrainrot00710" target="_blank" class="btn-buy">PEGAR AGORA</a>
-    </div>
-
-     <div class="card">
-        <img src="https://i.pinimg.com/736x/09/3c/48/093c4838360d6d06501e98fdc32f4648.jpg" alt="Item 2">
-        <h3>BRAINROT $100T p/segundo</h3>
-        <p>Chame no insta abaixo para receber</p>
-        <div class="price">R$ 28,90</div>
-        <a href="https://livepix.gg/vitorbrainrot00710" target="_blank" class="btn-buy">PEGAR AGORA</a>
-    </div>
-
-     <div class="card">
-        <img src="https://i.pinimg.com/736x/22/7a/77/227a771d9a73ffa96b54821510fda7bb.jpg" alt="Item 2">
-        <h3>BRAINROT $240T p/segundo</h3>
-        <p>Chame no insta abaixo para receber</p>
-        <div class="price">R$ 40,00</div>
-        <a href="https://livepix.gg/vitorbrainrot00710" target="_blank" class="btn-buy">PEGAR AGORA</a>
-    </div>
-
-     <div class="card">
-        <img src="https://i.pinimg.com/736x/93/e5/79/93e5794cdfdadbf6e1303eb36cef2d31.jpg" alt="Item 2">
-        <h3>BRAINROT $500T p/segundo</h3>
-        <p>Chame no insta abaixo para receber</p>
+        <img src="https://i.pinimg.com/736x/93/e5/79/93e5794cdfdadbf6e1303eb36cef2d31.jpg" alt="Item">
+        <h3>RELÍQUIA $500T</h3>
+        <p>O poder total do Nether</p>
         <div class="price">R$ 64,98</div>
-        <a href="https://livepix.gg/vitorbrainrot00710/" target="_blank" class="btn-buy">PEGAR AGORA</a>
-    </div>
-
-     <div class="card">
-        <img src="https://i.pinimg.com/736x/5d/ea/1b/5dea1b855ac6671f3992a30f9801912f.jpg" alt="Item 2">
-        <h3>BRAINROT $37,45Qd p/segundo</h3>
-        <p>Chame no insta abaixo para receber</p>
-        <div class="price">R$ 199,90</div>
-        <a href="https://livepix.gg/vitorbrainrot00710" target="_blank" class="btn-buy">PEGAR AGORA</a>
+        <a href="https://livepix.gg/vitorbrainrot00710" target="_blank" class="btn-buy">ADQUIRIR AGORA</a>
     </div>
 </div>
 
 <footer>
-    <p>Após conversarmos no insta, envie o comprovante no Direct do Instagram para receber seu item.</p>
-    <p>© 2024 Minha Loja Roblox - Todos os direitos reservados.</p>
+    <p>⚠️ ENVIO IMEDIATO VIA INSTAGRAM APÓS O PAGAMENTO ⚠️</p>
+    <p>© 2024 NETHER STORE - DOMINANDO O MULTIVERSO</p>
 </footer>
 
 </body>
-
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
