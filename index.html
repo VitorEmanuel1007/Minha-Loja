@@ -1,194 +1,173 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nether Store | Artefatos Roblox</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-red: #e63946;
-            --dark-red: #800000;
-            --bg-dark: #0d0d0d;
-            --card-bg: #1a1a1a;
-            --border-style: 2px solid #333;
-            --glow-red: 0 0 15px rgba(230, 57, 70, 0.4);
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Loja de Brainrots – Fuja do Tsunami</title>
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--bg-dark);
-            /* Adicionando uma textura leve de fundo que lembra pedra/papel antigo */
-            background-image: url('https://www.transparenttextures.com/patterns/dark-matter.png');
-            color: #d1d1d1;
-            margin: 0;
-            padding: 0;
-        }
+  <!-- Fonte estilo vampírica -->
+  <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
 
-        header {
-            background: linear-gradient(to bottom, #000, #1a1a1a);
-            padding: 50px 20px;
-            text-align: center;
-            border-bottom: 3px solid var(--dark-red);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.8);
-        }
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-        h1 {
-            font-family: 'Cinzel', serif;
-            color: var(--primary-red);
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            margin: 15px 0;
-            text-shadow: 2px 2px 4px black, 0 0 10px var(--dark-red);
-        }
+    body {
+      margin: 0;
+      font-family: 'Cinzel', serif;
+      background: radial-gradient(circle at top, #1a0000, #000000 70%);
+      color: #f5f5f5;
+      overflow-x: hidden;
+    }
 
-        .live-indicator {
-            background: #000;
-            color: var(--primary-red);
-            padding: 8px 18px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            border: 1px solid var(--dark-red);
-            box-shadow: var(--glow-red);
-            animation: pulse 2s infinite;
-        }
+    header {
+      padding: 50px 20px;
+      text-align: center;
+      background: linear-gradient(180deg, #120000, #000000);
+      border-bottom: 2px solid #7f0000;
+    }
 
-        @keyframes pulse {
-            0% { box-shadow: 0 0 5px var(--dark-red); }
-            50% { box-shadow: 0 0 20px var(--primary-red); }
-            100% { box-shadow: 0 0 5px var(--dark-red); }
-        }
+    header h1 {
+      margin: 0;
+      font-family: 'Metal Mania', cursive;
+      font-size: 3rem;
+      color: #b30000;
+      text-shadow: 0 0 15px rgba(179, 0, 0, 0.8);
+      animation: pulse 2.5s infinite;
+    }
 
-        .container {
-            max-width: 1100px;
-            margin: 50px auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 35px;
-            padding: 0 20px;
-        }
+    header p {
+      margin-top: 15px;
+      color: #d4afaf;
+      letter-spacing: 1px;
+    }
 
-        .card {
-            background: var(--card-bg);
-            border: 2px solid #2a2a2a;
-            border-radius: 4px; /* Cantos menos arredondados para parecer metal/pedra */
-            padding: 15px;
-            text-align: center;
-            position: relative;
-            transition: 0.4s;
-            overflow: hidden;
-        }
+    @keyframes pulse {
+      0%, 100% { text-shadow: 0 0 15px rgba(179,0,0,0.6); }
+      50% { text-shadow: 0 0 30px rgba(179,0,0,1); }
+    }
 
-        /* Moldura interna simulando a foto */
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 5px; left: 5px; right: 5px; bottom: 5px;
-            border: 1px solid #333;
-            pointer-events: none;
-        }
+    .container {
+      max-width: 1200px;
+      margin: 60px auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 35px;
+    }
 
-        .card:hover {
-            border-color: var(--primary-red);
-            transform: scale(1.03);
-            box-shadow: var(--glow-red);
-        }
+    .card {
+      position: relative;
+      background: linear-gradient(160deg, #0a0000, #1a0000);
+      border-radius: 20px;
+      padding: 30px;
+      border: 1px solid #550000;
+      box-shadow: 0 0 30px rgba(120, 0, 0, 0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      overflow: hidden;
+    }
 
-        .card img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            filter: grayscale(30%) contrast(120%);
-            border: 1px solid #000;
-        }
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top left, rgba(255,0,0,0.15), transparent 60%);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
 
-        .card h3 {
-            font-family: 'Cinzel', serif;
-            color: #eee;
-            margin: 15px 0 5px;
-        }
+    .card:hover::before {
+      opacity: 1;
+    }
 
-        .price {
-            font-size: 1.6rem;
-            color: var(--primary-red);
-            font-weight: bold;
-            font-family: 'Cinzel', serif;
-            margin: 10px 0;
-        }
+    .card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 0 50px rgba(200, 0, 0, 0.8);
+    }
 
-        .btn-buy {
-            display: inline-block;
-            background: linear-gradient(to bottom, #800000, #4d0000);
-            color: white;
-            text-decoration: none;
-            padding: 12px 0;
-            width: 100%;
-            font-weight: bold;
-            text-transform: uppercase;
-            border: 1px solid var(--primary-red);
-            transition: 0.3s;
-            cursor: pointer;
-            font-family: 'Cinzel', serif;
-        }
+    .card h2 {
+      margin: 0 0 12px 0;
+      font-family: 'Metal Mania', cursive;
+      color: #e60000;
+      font-size: 1.8rem;
+    }
 
-        .btn-buy:hover {
-            background: var(--primary-red);
-            color: black;
-            box-shadow: 0 0 15px var(--primary-red);
-        }
+    .card p {
+      margin: 0 0 25px 0;
+      color: #f0caca;
+      font-size: 0.95rem;
+    }
 
-        footer {
-            background: #000;
-            padding: 40px;
-            text-align: center;
-            border-top: 2px solid var(--dark-red);
-            color: #666;
-            font-size: 0.85rem;
-        }
+    .price {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #ff3b3b;
+      margin-bottom: 25px;
+      text-shadow: 0 0 10px rgba(255,0,0,0.6);
+    }
 
-        strong { color: var(--primary-red); }
+    .card button {
+      padding: 14px;
+      border: none;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #7f0000, #ff0000);
+      color: #000000;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      letter-spacing: 1px;
+      transition: all 0.25s ease;
+    }
 
-    </style>
+    .card button:hover {
+      background: linear-gradient(135deg, #ff0000, #ff4d4d);
+      box-shadow: 0 0 25px rgba(255,0,0,0.9);
+      transform: scale(1.05);
+    }
+
+    footer {
+      margin-top: 80px;
+      padding: 30px 20px;
+      text-align: center;
+      background: #000000;
+      border-top: 2px solid #7f0000;
+      color: #a3a3a3;
+      font-size: 0.9rem;
+    }
+
+    footer p {
+      margin: 6px 0;
+    }
+  </style>
 </head>
 <body>
+  <header>
+    <h1>🩸 Loja de Brainrots 🩸</h1>
+      <p>Fuja do Tsunami Para Brainrots</p>
+  </header>
 
-<header>
-    <span class="live-indicator">● LIVE ON - ARTEFATOS DISPONÍVEIS</span>
-    <h1>NETHER STORE</h1>
-    <p>Adquira o poder supremo via <strong>PIX</strong></p>
-</header>
+  <main class="container">
+    <div class="card"><h2>Brainrot $1T</h2><p>Geração de <strong>$1T por segundo</strong>.</p><div class="price">R$ ?</div><button onclick="comprar()">Comprar</button></div>
+    <div class="card"><h2>Brainrot $5T</h2><p>Geração de <strong>$5T por segundo</strong>.</p><div class="price">R$ ?</div><button onclick="comprar()">Comprar</button></div>
+    <div class="card"><h2>Brainrot $10T</h2><p>Geração de <strong>$10T por segundo</strong>.</p><div class="price">R$ ?</div><button onclick="comprar()">Comprar</button></div>
+    <div class="card"><h2>Brainrot $15T</h2><p>Geração de <strong>$15T por segundo</strong>.</p><div class="price">R$ ?</div><button onclick="comprar()">Comprar</button></div>
+    <div class="card"><h2>Brainrot $20T</h2><p>Geração de <strong>$20T por segundo</strong>.</p><div class="price">R$ ?</div><button onclick="comprar()">Comprar</button></div>
+    <div class="card"><h2>Brainrot $30T</h2><p>Geração de <strong>$30T por segundo</strong>.</p><div class="price">R$ ?</div><button onclick="comprar()">Comprar</button></div>
+    <div class="card"><h2>Brainrot $50T</h2><p>Geração de <strong>$50T por segundo</strong>.</p><div class="price">R$ ?</div><button onclick="comprar()">Comprar</button></div>
+  </main>
 
-<div class="container">
-    <div class="card">
-        <img src="https://i.pinimg.com/736x/f5/1d/d8/f51dd89eb58bb6af8281dd28aa519993.jpg" alt="Item">
-        <h3>BRAINROT $1T</h3>
-        <p>Potência básica do abismo</p>
-        <div class="price">R$ 1,49</div>
-        <a href="https://livepix.gg/vitorbrainrot00710" target="_blank" class="btn-buy">ADQUIRIR AGORA</a>
-    </div>
+  <footer>
+    <p>⚠️ Este site não é afiliado oficialmente ao Roblox.</p>
+    <p>© 2026 - Loja de Brainrots • Estilo Vampírico</p>
+  </footer>
+  <script>
+    function comprar() {
+      // 🔗 COLE AQUI O LINK PARA ONDE O BOTÃO DEVE LEVAR
+      const linkCompra = "https://web.whatsapp.com/";
 
-    <div class="card">
-        <img src="https://i.pinimg.com/736x/fa/16/c1/fa16c1a347bd34e62ed60843e170f1ed.jpg" alt="Item">
-        <h3>BRAINROT $30T</h3>
-        <p>Fragmento de alma sombria</p>
-        <div class="price">R$ 16,00</div>
-        <a href="https://livepix.gg/vitorbrainrot00710" target="_blank" class="btn-buy">ADQUIRIR AGORA</a>
-    </div>
-
-    <div class="card">
-        <img src="https://i.pinimg.com/736x/93/e5/79/93e5794cdfdadbf6e1303eb36cef2d31.jpg" alt="Item">
-        <h3>RELÍQUIA $500T</h3>
-        <p>O poder total do Nether</p>
-        <div class="price">R$ 64,98</div>
-        <a href="https://livepix.gg/vitorbrainrot00710" target="_blank" class="btn-buy">ADQUIRIR AGORA</a>
-    </div>
-</div>
-
-<footer>
-    <p>⚠️ ENVIO IMEDIATO VIA INSTAGRAM APÓS O PAGAMENTO ⚠️</p>
-    <p>© 2024 NETHER STORE - DOMINANDO O MULTIVERSO</p>
-</footer>
-
+      window.open(linkCompra, "_blank");
+    }
+  </script>
 </body>
 </html>
